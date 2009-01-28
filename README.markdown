@@ -23,21 +23,22 @@ Using Rack::Flash
 -----------------
 
 Rack::Flash is a Rack middleware. How you use it depends on how you run your
-rack app. If you're running a **Rackup file**, just add the following somewhere
+Rack app. If you're running a **Rackup file**, just add the following somewhere
 before your `run` command:
 
     require 'rack/flash'
     use Rack::Flash
 
-**However**, Rack::Flash needs a session to work its magic, so make sure you use one before Rack::Flash.  Something like:
+*However*, Rack::Flash needs a session to work its magic, so make sure you
+use one before Rack::Flash. Something like:
 
     require 'rack/flash'
     use Rack::Session::Cookie
     use Rack::Flash
 
 (Rack comes with [a few session middlewares to choose from][2]; any of them
-will work.) Your session key will have to be "rack.session". This might become
-configurable one day.
+will work.) Your session key will have to be the default, "rack.session". This
+might become configurable one day.
 
 If you're running **Sinatra**, you've already got a session for free. Add the
 code above (the one without the session line) to your Sinatra file near the
